@@ -1,0 +1,57 @@
+{
+    "name": "bimyar_mobile",
+    "private": true,
+    "author": "@tajpouria",
+    "version": "1.0.0",
+    "keywords": [
+        "BimYar"
+    ],
+    "repository": {
+        "type": "git"
+    },
+    "license": "MIT",
+    "scripts": {
+        "lerna": "lerna",
+        "start": "concurrently \"lerna run start:core --stream\" \"lerna run build:utility\" \"lerna run lint --stream \"lerna run build:copy-static-assets --stream\"",
+        "bootstrap": "yarn && yarn lerna run bootstrap",
+        "test": "lerna run test",
+        "build": "lerna run build",
+        "clean": "lerna clean --yes && rm -rf ./node_modules",
+        "publish": "lerna publish",
+        "lint": "lerna run lint"
+    },
+    "dependencies": {
+        "react": "16.8.6",
+        "react-dom": "16.8.6"
+    },
+    "devDependencies": {
+        "@types/enzyme": "^3.10.3",
+        "@types/enzyme-adapter-react-16": "^1.0.5",
+        "@types/node": "12.0.3",
+        "@types/react": "16.8.19",
+        "@types/react-dom": "16.8.4",
+        "concurrently": "4.1.0",
+        "enzyme": "^3.10.0",
+        "enzyme-adapter-react-16": "^1.14.0",
+        "lerna": "^3.14.1",
+        "node-sass": "4.12.0",
+        "react-scripts-ts": "3.1.0",
+        "rimraf": "3.0.0",
+        "shelljs": "0.8.3",
+        "ts-jest": "^24.1.0",
+        "tslint": "5.16.0",
+        "tslint-config-prettier": "1.18.0",
+        "tslint-react": "4.0.0",
+        "typescript": "3.5.1"
+    },
+    "sideEffects": false,
+    "publishConfig": {
+        "access": "private"
+    },
+    "workspaces": [
+        "packages/*"
+    ],
+    "engines": {
+        "node": ">=10.0.0"
+    }
+}

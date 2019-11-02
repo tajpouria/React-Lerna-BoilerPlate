@@ -1,0 +1,46 @@
+{
+    "name": "@bimyar-mobile/core",
+    "private": true,
+    "author": "@tajpouria",
+    "version": "1.0.0",
+    "description": "core",
+    "keywords": [
+        "BimYar"
+    ],
+    "repository": {
+        "type": "git"
+    },
+    "license": "MIT",
+    "scripts": {
+        "start:core": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold\" \"npm run watch:scss\" \"npm run watch:ts\"",
+        "watch:ts": "npm run build:css && react-scripts-ts start",
+        "watch:scss": "node-sass public/css/index.scss public/css/index.css -w",
+        "build:pre": "rimraf build",
+        "build": "npm run build:pre && npm run build:css && react-scripts-ts build",
+        "build:css": "node-sass public/css/index.scss public/css/index.css",
+        "build:webpack-prod": "set NODE_ENV=production && npm run build:css && webpack --progress",
+        "test": "jest --watchAll --config ./jest-config.js --verbose false",
+        "eject": "react-scripts-ts eject",
+        "lint": "tslint -c ./tslint.json './src/**/*.ts'"
+    },
+    "dependencies": {
+        "react-redux": "7.0.3",
+        "react-router-dom": "^5.0.1",
+        "redux": "^4.0.4",
+        "redux-saga": "1.0.2"
+    },
+    "devDependencies": {
+        "@bimyar-mobile/utility": "^1.0.0",
+        "@types/react-redux": "7.0.9",
+        "@types/react-router": "5.0.1",
+        "@types/react-router-dom": "^4.3.5",
+        "@types/redux": "^3.6.0"
+    },
+    "sideEffects": false,
+    "publishConfig": {
+        "access": "private"
+    },
+    "engines": {
+        "node": ">=10.0.0"
+    }
+}

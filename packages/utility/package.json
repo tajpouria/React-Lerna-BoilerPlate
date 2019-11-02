@@ -1,0 +1,37 @@
+{
+    "name": "@bimyar-mobile/utility",
+    "private": true,
+    "author": "@tajpouria",
+    "version": "1.0.1",
+    "description": "Utility",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "keywords": [
+        "BimYar"
+    ],
+    "repository": {
+        "type": "git"
+    },
+    "license": "MIT",
+    "scripts": {
+        "build": "npm run build:prepare && tsc",
+        "build:utility": "tsc -w",
+        "build:clean": "rimraf lib && npm run build:copy-static-assets",
+        "build:prepare": "npm run build:copy-static-assets",
+        "build:copy-static-assets": "node ./commands/copy-static-assets.js",
+        "lint": "tslint -c ./tslint.json './src/**/*.ts'"
+    },
+    "dependencies": {
+        "uuid": "^3.3.3"
+    },
+    "devDependencies": {
+        "@types/uuid": "^3.4.5"
+    },
+    "sideEffects": false,
+    "publishConfig": {
+        "access": "private"
+    },
+    "engines": {
+        "node": ">=10.0.0"
+    }
+}
